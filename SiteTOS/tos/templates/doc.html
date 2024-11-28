@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <title>Документы</title>
+    <link rel="stylesheet" href="{% static "css/styles_doc.css" %}" />
+</head>
+<body>
+    <header style="background-image: url('/media/background.jpg');">
+
+        <a href="{% url 'home' %}"class="logo">
+            <img src="{% static 'media/ic.png' %}" alt="Логотип" width="50" height="50">
+        </a>
+        <nav class="menu">
+            <ul>
+                <li><a href="{% url 'home' %}">Главное</a></li>
+                <li><a href="{% url 'news' %}">Новости</a></li>
+                <li><a href="{% url 'tos' %}">Тосы</a></li>
+                <li><a href="{% url 'comp' %}">Конкурсы</a></li>
+                <li><a href="{% url 'doc' %}">Документы</a></li>
+                <li class="account"><a href="{% url 'auth' %}">Личный кабинет</a></li>
+            </ul>
+        </nav>
+    </header>
+ <main>
+<div class="container">
+        <!--<div class="search-container">-->
+        <!--    <form method="get" action="">-->
+        <!--        <input type="text" name="search" placeholder="Поиск..." class="search-input" id="searchInput" value="{{ search_query }}" onkeyup="filterContests()">-->
+
+        <!--        <div class="sort-cell">-->
+        <!--            <label for="sort">Сортировка:</label>-->
+        <!--            <select id="sort" name="sort" onchange="this.form.submit()">-->
+        <!--                <option value="asc" {% if sort_order == 'asc' %}selected{% endif %}>А - Я</option>-->
+        <!--                <option value="desc" {% if sort_order == 'desc' %}selected{% endif %}>Я - А</option>-->
+        <!--            </select>-->
+        <!--        </div>-->
+
+        <!--                {% if contests.has_previous %}-->
+        <!--            <input type="hidden" name="page" value="{{ contests.previous_page_number }}">-->
+        <!--        {% endif %}-->
+        <!--    </form>-->
+        <!--</div>-->
+         <div class="search-container">
+    <form method="get" action="" class="search-form">
+        <input type="text" name="search" placeholder="Поиск..." class="search-input" id="searchInput" value="{{ search_query }}" onkeyup="filterContests()">
+
+        <div class="sort-cell">
+            <label for="sort">Сортировка:</label>
+            <select id="sort" name="sort" onchange="this.form.submit()">
+                <option value="asc" {% if sort_order == 'asc' %}selected{% endif %}>А - Я</option>
+                <option value="desc" {% if sort_order == 'desc' %}selected{% endif %}>Я - А</option>
+            </select>
+        </div>
+
+        {% if contests.has_previous %}
+            <input type="hidden" name="page" value="{{ contests.previous_page_number }}">
+        {% endif %}
+    </form>
+</div>
+</div>
+
+<table class="document-table">
+    <thead>
+        <tr>
+            <th>Иконка</th>
+            <th>Название</th>
+            <th>Автор</th>
+            <th>Действие</th>
+        </tr>
+    </thead>
+    <tbody id="documentBody">
+        {% for i in contests %}
+        <tr>
+            <td><img src="{% static "media/pdf-icon.png" %}" alt="Иконка" class="icon"></td>
+            <td><strong>{{ i.name }}</strong></td> <!-- Название файла -->
+            <td>{{ i.author.first_name }} {{ i.author.last_name }}</td>
+            <td>
+                {% if i.pdf_document %}
+                <button onclick="downloadDocument('{{ i.pdf_document.url }}')">Скачать</button></td>
+                {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if contests.has_previous %}
+            <a href="?page=1">Первая</a>
+            <a href="?page={{ contests.previous_page_number }}"><<</a>
+        {% endif %}
+
+        {% for num in contests.paginator.page_range %}
+            {% if num == contests.number %}
+                <span class="current">{{ num }}</span>
+            {% elif num > contests.number|add:-3 and num < contests.number|add:3 %}
+                <a href="?page={{ num }}">{{ num }}</a>
+            {% elif num == 1 or num == contests.paginator.num_pages %}
+                <a href="?page={{ num }}">{{ num }}</a>
+            {% elif not forloop.first and forloop.last %}
+                <span>...</span>
+            {% endif %}
+        {% endfor %}
+
+        {% if contests.has_next %}
+            <a href="?page={{ contests.next_page_number }}">>></a>
+            <a href="?page={{ contests.paginator.num_pages }}">Последняя</a>
+        {% endif %}
+    </span>
+    </div>
+    </main>
+ <script src="{% static "js/script_doc.js" %}"></script>
+</body>
+
+   <footer class="footer">
+
+    <div class="footer-column">
+         <h3>Контакты</h3>
+                <p>Телефон: 8-924-386-0147</p>
+                <p>Email: toszab@mail.ru</p></div>
+    <div class="footer-column">
+
+    <div class="footer-column">
+        <h3>Разработчики</h3>
+
+        <a href="https://t.me/VadimV_1" class="icon" style="color: white;">
+        <img src="{% static 'media/icotg.png' %}" alt="Telegram" style="color: white; vertical-align: middle;">
+        Ватагин Вадим (Бэкенд)
+    </a>
+<br>
+    <a href="https://t.me/Lamenat21" class="icon" style="color: white;">
+        <img src="{% static 'media/icotg.png' %}" alt="Telegram" style="color: white; vertical-align: middle;">
+        Богодухов Михаил (Фронтенд)
+    </a></div>
+</footer>
+
+
+</html>

@@ -1,0 +1,251 @@
+body {
+    min-width: 1200px;
+    margin: 0;
+
+    background-color: #f5f5f5;
+    color: black;
+}
+
+header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url('Image/background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    padding: 2%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 180px;
+    height: 180px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    margin: 0 15px;
+    position: relative;
+}
+
+.menu a {
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    position: relative;
+}
+
+.menu a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.menu a:hover::after,
+.menu a.active::after { /* Подчеркивание для активной ссылки */
+   width: 100%;
+}
+
+.useful-links {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.useful-links a {
+    margin-left: 15px;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.useful-links a:hover {
+    background-color: #0056b3;
+}
+
+.main-content {
+    padding: 20px;
+}
+.document-table {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width: 60%;
+    margin: 20px auto;
+    border-collapse: collapse; /* Убираем двойные границы */
+    background-color: rgba(255, 255, 255, 0.8); /* Прозрачный фон */
+}
+
+.document-table th, .document-table td {
+    padding: 20px; /* Отступы внутри ячеек */
+    text-align: left; /* Выравнивание текста по левому краю */
+}
+
+.icon {
+    width: 30px; /* Ширина иконки */
+    height: 40px; /* Автоматическая высота для сохранения пропорций */
+}
+
+button {
+    font-size: 16px;
+    padding: 10px 15px; /* Отступы внутри кнопки */
+    border-radius: 5px; /* Закругленные углы */
+    border: none; /* Убираем границу */
+    background-color: rgba(197, 197, 197, 0.8); /* Прозрачный фон */
+    color: rgb(0, 0, 0); /* Цвет текста кнопки */
+    cursor: pointer; /* Указатель при наведении */
+}
+/*Поиск*/
+
+
+
+form {
+    margin-top:2%;
+    margin-left: 35%;
+    display: flex; /* Используем Flexbox для выравнивания */
+    align-items: center; /* Центрируем элементы по вертикали */
+}
+
+.search-container {
+    display: flex; /* Используем Flexbox для выравнивания */
+
+    margin-bottom: 30px; /* Отступ снизу */
+}
+
+input[type="text"] {
+    padding: 22px 20px; /* Внутренние отступы для текстового поля */
+    border: none; /* Убираем стандартную рамку */
+    border-radius: 25px; /* Закругленные углы */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тень для создания эффекта подъема */
+    font-size: 16px; /* Размер шрифта */
+    width: 300px; /* Ширина текстового поля */
+    transition: all 0.3s ease; /* Плавный переход для эффекта фокуса */
+    background-color: #ffffff; /* Цвет фона текстового поля */
+}
+
+input[type="text"]:focus {
+    outline: none; /* Убираем контур при фокусе */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); /* Увеличиваем тень при фокусе */
+    background-color: #f9f9f9; /* Цвет фона при фокусе */
+}
+
+input[type="text"]::placeholder {
+    color: #aaa; /* Цвет текста подсказки */
+    opacity: 1; /* Полная непрозрачность для подсказки */
+}
+
+.sort-cell {
+    display: flex; /* Используем Flexbox для выравнивания элементов внутри сортировки */
+    align-items: center; /* Центрируем элементы по вертикали */
+    margin-left: 15px; /* Отступ слева для отделения от текстового поля */
+    background-color: #ffffff; /* Цвет фона контейнера */
+    padding: 15px; /* Внутренние отступы для контейнера */
+    border-radius: 10px; /* Закругленные углы контейнера */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Легкая тень для контейнера */
+}
+
+.sort-cell label {
+    margin-right: 15px; /* Отступ справа для метки */
+    font-size: 18px; /* Размер шрифта метки */
+    color: #333; /* Цвет текста метки */
+}
+
+select {
+    padding: 10px 15px; /* Внутренние отступы для выпадающего списка */
+    border: none; /* Убираем стандартную рамку */
+    border-radius: 20px; /* Закругленные углы */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    font-size: 16px; /* Размер шрифта выпадающего списка */
+    background-color: #ffffff; /* Цвет фона выпадающего списка */
+    transition: all 0.3s ease; /* Плавный переход для эффекта фокуса */
+}
+
+select:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); /* Увеличиваем тень при наведении */
+}
+
+select:focus {
+    outline: none; /* Убираем контур при фокусе */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3); /* Увеличиваем тень при фокусе */
+}
+
+/**/
+
+.pagination {
+    display: flex;
+    padding-left:35%;
+    margin: 20px 0; /* Отступы сверху и снизу */
+}
+
+.step-links {
+    display: flex;
+    align-items: center; /* Выравнивание по центру по вертикали */
+}
+
+.step-links a {
+    text-decoration: none; /* Убирает подчеркивание */
+    color: #007bff; /* Цвет ссылок */
+    padding: 10px 15px; /* Отступы вокруг ссылок */
+    margin: 0 5px; /* Отступы между ссылками */
+    border-radius: 5px; /* Скругленные углы */
+    transition: background-color 0.3s; /* Плавный переход для фона */
+}
+
+.step-links a:hover {
+    background-color: #e9ecef; /* Цвет фона при наведении */
+}
+
+.current {
+    background-color: #007bff; /* Цвет фона для текущей страницы */
+    color: white; /* Цвет текста для текущей страницы */
+    padding: 10px 15px; /* Отступы вокруг текущей страницы */
+    border-radius: 5px; /* Скругленные углы */
+}
+
+.icon {
+
+        align-items: center;
+        margin-right: 10px; /* Optional spacing between icons */
+    }
+    .icon img {
+        margin-right: 5px; /* Space between icon and text */
+    }
+footer {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    display: flex;
+    justify-content: space-between;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+}
+
+.footer-column {
+    flex: 1;
+}

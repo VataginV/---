@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <title>Тосы Забайкалья</title>
+    <link rel="stylesheet" href="{% static "css/styles.css" %}" />
+</head>
+<body>
+    <header style="background-image: url('/media/background.jpg');">
+
+        <a href="{% url 'home' %}" class="logo">
+            <img src="{% static 'media/ic.png' %}" alt="Логотип" width="400" height="400">
+        </a>
+        <nav class="menu">
+            <ul>
+                <li><a href="{% url 'home' %}">Главное</a></li>
+                <li><a href="{% url 'news' %}">Новости</a></li>
+                <li><a href="{% url 'tos' %}">Тосы</a></li>
+                <li><a href="{% url 'comp' %}">Конкурсы</a></li>
+                <li><a href="{% url 'doc' %}">Документы</a></li>
+                <li class="account"><a href="{% url 'auth' %}">Личный кабинет</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="tos-description">
+            <h2>Что это такое?</h2>
+                <p>
+                    Территориальное общественное самоуправление (ТОС) — это форма самоорганизации граждан по месту их жительства на части территории муниципального образования. ТОСы создаются для того, чтобы жители могли самостоятельно решать вопросы, касающиеся их жизни и благоустройства территории. Это может быть микрорайон, квартал, улица, двор или даже отдельный дом.
+                </p>
+        </section>
+
+        <section class="tos-purpose">
+            <h2>Для чего они нужны?</h2>
+                <p>
+                    ТОСы предназначены для:
+                    <ul>
+                        <li>Участия граждан в местном самоуправлении и принятии решений, касающихся их жизни.</li>
+                        <li>Реализации инициатив по улучшению качества жизни на территории.</li>
+                        <li>Организации совместных мероприятий, направленных на благоустройство и развитие населенного пункта.</li>
+                        <li>Привлечения внимания к проблемам и потребностям жителей, что позволяет более эффективно взаимодействовать с органами власти.</li>
+                    </ul>
+                </p>
+        </section>
+
+        <section class="tos-benefits">
+            <h2>Чем они помогут простым жителям?</h2>
+                <p>
+                    ТОСы могут оказать значительное влияние на жизнь простых жителей:
+                        <ul>
+                            <li><strong>Улучшение качества жизни:</strong> Жители могут инициировать проекты по благоустройству, такие как установка детских площадок, освещение улиц, уборка территории и т.д.</li>
+                            <li><strong>Социальная сплоченность:</strong> ТОСы способствуют объединению жителей, что помогает создать более сплоченное сообщество и улучшить взаимопонимание между соседями.</li>
+                            <li><strong>Доступ к ресурсам:</strong> ТОСы могут участвовать в конкурсах и получать гранты на реализацию своих проектов, что позволяет привлекать дополнительные средства для развития территории.</li>
+                            <li><strong>Голос граждан:</strong> Благодаря ТОСам, жители получают возможность напрямую влиять на решения, касающиеся их жизни, что повышает уровень демократии и ответственности местных властей.</li>
+                        </ul>
+                </p>
+        </section>
+    </main>
+<h2 style="margin-left: 20%;color: black;">Последение новости</h2>
+<div class="grid2">
+    <section class="grid">
+        {% for i in contests|slice:":3" %}
+            <article class="grid-item">
+                <div class="image">
+                    {% if i.images.all %}
+                        {% for img in i.images.all %}
+                            <img src="{{ img.image.url }}" alt="Image for {{ i.title }}">
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="info">
+                    <h2>{{ i.title }}</h2>
+                    <div class="info-text">
+                        <p>{{ i.text|slice:":200" }}</p>
+                    </div>
+                    <div class="button-wrap">
+                        <a class="atuin-btn" href="{% url 'news_detail' i.id %}" target="_blank">Подробнее</a>
+                    </div>
+                    <div class="data">
+                        <p>{{ i.pub_date }}</p>
+                    </div>
+                </div>
+            </article>
+        {% endfor %}
+    </section>
+</div>
+
+   <footer class="footer">
+
+    <div class="footer-column">
+         <h3>Контакты</h3>
+                <p>Телефон: 8-924-386-0147</p>
+                <p>Email: toszab@mail.ru</p></div>
+    <div class="footer-column">
+
+    <div class="footer-column">
+        <h3>Разработчики</h3>
+
+        <a href="https://t.me/VadimV_1" class="icon" style="color: white;">
+        <img src="{% static 'media/icotg.png' %}" alt="Telegram" style="color: white; vertical-align: middle;">
+        Ватагин Вадим (Бэкенд)
+    </a>
+<br>
+    <a href="https://t.me/Lamenat21" class="icon" style="color: white;">
+        <img src="{% static 'media/icotg.png' %}" alt="Telegram" style="color: white; vertical-align: middle;">
+        Богодухов Михаил (Фронтенд)
+    </a></div>
+</footer>
+
+    <!--<script src="{% static "js/script.js" %}" /></script>-->
+</body>
+</html>

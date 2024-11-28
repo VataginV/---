@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset='utf-8'>
+    <title>Авторизация</title>
+    <link rel='stylesheet' type='text/css' media='screen' href="{% static "css/styles_auto.css" %}">
+</head>
+<main><center>
+    <section class="auth-container">
+        <div class="auth-box">
+            <a href="{% url 'home' %}">
+                <img src="{% static 'media/ic.png' %}" alt="Логотип" width="200" height="200">
+            </a>
+            <div class="auth-title">Авторизация</div>
+            <form method="POST" action="{% url 'auth' %}">
+                <div class="auth-form">
+                    {% csrf_token %}
+                    <label for="username">Введите логин:</label>
+                    <input type="text" id="username" name="username" required>
+
+                    <label for="password">Пароль:</label>
+                    <input type="password" id="password" name="password" required>
+
+                        {% if messages %}
+                            <ul class="messages">
+                                {% for message in messages %}
+                                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+
+                    <input class="btn" type="submit" value="Войти" />
+
+                    <input class="btn" type="button" onclick="window.location.href='{% url 'registration' %}';" value="Регистрация" />
+                    <input class="btn" type="button" onclick="window.location.href='{% url 'home' %}';" value="На главную" />
+                </div>
+            </form>
+        </div>
+    </section>
+    </center>
+</main>
+</body>
+</html>

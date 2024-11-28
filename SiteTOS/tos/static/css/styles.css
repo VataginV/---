@@ -1,0 +1,438 @@
+
+
+body {
+    min-width: 1200px;
+    margin: 0;
+    background-color: #f5f5f5;
+    color: black;
+}
+
+@font-f16{
+    font-size: 16px;
+}
+p{
+    font-size: 20px;
+}
+li{font-size: 20px;}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    padding: 2%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 180px;
+    height: 180px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    margin: 0 15px;
+    position: relative;
+}
+
+.menu a {
+    font-size: 20px;
+    text-decoration: none;
+    color: white; /* Цвет текста */
+    padding: 10px 20px;
+    position: relative;
+}
+
+.menu a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Расстояние от текста до подчеркивания */
+    width: 0; /* Начальная ширина подчеркивания */
+    height: 2px; /* Толщина подчеркивания */
+    background-color: white; /* Цвет подчеркивания */
+    transition: width 0.3s ease; /* Плавный переход */
+}
+
+.menu a:hover::after,
+.menu a.active::after { /* Подчеркивание для активной ссылки */
+   width: 100%; /* Ширина подчеркивания для активной ссылки */
+}
+
+.useful-links {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.useful-links a {
+    margin-left: 15px;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.useful-links a:hover {
+    background-color: #0056b3;
+}
+
+.main-content {
+    padding: 20px;
+}
+
+.tile {
+
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.tile img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+footer {
+
+    display: flex;
+    justify-content: space-between;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+}
+
+.footer-column {
+    flex: 1;
+}
+
+.tiles-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.tile {
+
+    height: 400px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.tile:hover {
+    transform: translateY(-10px);
+}
+
+.tile img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.tile h3 {
+    margin: 15px;
+    font-size: 18px;
+    color: #333;
+}
+
+.tile p {
+    margin: 0 15px 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+.news-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Плитки располагаются в один столбец */
+    align-items: flex-start; /* Выравнивание плиток по левому краю */
+}
+
+.news-item {
+
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px; /* Ширина плитки */
+    margin-bottom: 20px; /* Отступ между плитками */
+    display: flex;
+    cursor: pointer; /* Указатель при наведении */
+    transition: transform 0.3s ease; /* Плавная анимация */
+}
+
+.news-item:hover {
+    transform: translateY(-5px); /* Эффект выпирания */
+}
+
+.news-image {
+    flex-basis: 40%;
+}
+
+.news-image img {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.news-content {
+    flex-basis: 60%;
+    padding: 20px;
+}
+
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+h2 {
+    color: grean;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+
+.documents-container {
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+}
+
+.document-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.pdf-icon {
+    padding-left: 540px;
+    width: 50px; /* Размер значка PDF */
+    height: 60px; /* Размер значка PDF */
+    margin-right: 10px;
+}
+
+.document-item a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ccc; /* Подчеркивание под документом */
+    margin-top: 5px;
+}
+.data{
+    padding-left:50%;
+}
+
+.grid * {
+    box-sizing: border-box; /* Устанавливаем box-sizing для всех элементов в сетке */
+}
+
+.grid {
+    margin-left: 350px; /* Уменьшено на 50% (изначально 250px) */
+    margin-right: 350px; /* Уменьшено на 50% (изначально 300px) */
+    display: grid; /* Используем CSS Grid для размещения плиток */
+    grid-template-columns: repeat(3, 1fr); /* Три колонки одинаковой ширины */
+    column-gap: 15px; /* Уменьшено на 50% (изначально 30px) */
+    row-gap: 15px; /* Уменьшено на 50% (изначально 30px) */
+    padding: 10px 0; /* Уменьшено на 50% (изначально 20px) */
+}
+
+/* Количество блоков на разных экранах */
+@media only screen and (max-width: 1200px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr); /* Оставлено без изменений для больших экранов */
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* Две колонки для средних экранов */
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr; /* Одна колонка для маленьких экранов */
+    }
+}
+
+.grid-item {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2), 0 4px 6px rgba(0,0,0,0.2); /* Тень для плитки */
+    transition: box-shadow .3s; /* Плавный переход для тени при наведении */
+
+    height: 350px; /* Высота будет зависеть от содержимого плитки */
+}
+
+.grid-item .image {
+    height: 100px; /* Высота изображения плитки (уменьшена на 50%) */
+    overflow: hidden; /* Скрываем переполнение изображения */
+}
+
+.grid-item .info {
+    position: relative;
+    height: calc(100% - 100px); /* Высота блока информации относительно высоты изображения */
+    padding: 8px 7px 40px 7px; /* Отступы внутри блока информации (уменьшены) */
+}
+
+.grid-item:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2), 0 16px 20px rgba(0,0,0,0.2); /* Увеличенная тень при наведении */
+}
+
+.grid-item .image img {
+    transition: transform 280ms ease-in-out; /* Плавный переход для увеличения изображения при наведении */
+    display: block;
+    width: 100%; /* Ширина изображения равна ширине контейнера плитки */
+    height: 110%; /* Высота изображения автоматически подстраивается по соотношению сторон */
+    object-fit: cover; /* Обеспечивает заполнение области изображения без искажения пропорций */
+}
+
+.grid-item:hover .image img {
+    transform: scale(1.1); /* Увеличение изображения при наведении */
+}
+
+.info h2 {
+
+    color: #337AB7; /* Цвет заголовка информации */
+    font-size: 18px; /* Размер шрифта заголовка (уменьшен на 50%) */
+    font-weight: normal;
+    margin: 0;
+    text-align: center;
+}
+
+.info-text p {
+    font-size: 16px; /* Размер текста информации (уменьшен на 50%) */
+    line-height: 14px; /* Высота строки текста информации (уменьшена на 50%) */
+
+    margin-bottom: 5px; /* Отступ снизу для текста информации (уменьшен на 50%) */
+}
+
+.info-text p:last-child {
+    margin-bottom: 0; /* Убираем отступ для последнего абзаца текста информации */
+}
+
+.grid-item .button-wrap {
+    display: block;
+    width: 100%;
+    position: absolute;
+    bottom: 7px; /* Расположение кнопки внизу плитки (уменьшено на 50%) */
+    left: 0;
+    text-align: center;
+}
+
+/* Кнопка подробнее */
+.atuin-btn {
+    display: inline-flex;
+    text-decoration: none;
+    position: relative;
+    font-size: 10px; /* Размер шрифта кнопки (уменьшен на 50%) */
+    line-height: normal;
+    padding: 6px 15px; /* Отступы внутри кнопки (уменьшены на 50%) */
+    color: #FFF;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    background-color: #ffae00;
+    cursor: pointer;
+    border-radius:5%;
+}
+
+/* Эффекты кнопки при наведении и фокусе*/
+.atuin-btn:hover,
+.atuin-btn.active,
+.atuin-btn.focus {
+   color:#FFF ;
+}
+
+/* Эффекты подчеркивания кнопки при наведении*/
+.atuin-btn::after,
+.atuin-btn::before {
+   position:absolute ;
+   height :2px ; /* Высота подчеркивания кнопки (уменьшена на 50%) */
+   left :50% ;
+   background :#337AB7 ;
+   bottom :-3px ; /* Положение подчеркивания кнопки (уменьшено на 50%) */
+   content :"" ;
+   transition :all .28s ease-in-out ;
+   width :0 ;
+}
+
+/* Положение верхнего подчеркивания кнопки*/
+.atuin-btn::before {
+   top:-3px ;
+}
+
+/* Эффекты подчеркивания кнопки при наведении и фокусе*/
+.atuin-btn:hover::after,
+.atuin-btn:hover::before,
+.atuin-btn.active::after,
+.atuin-btn.active::before,
+.atuin-btn.focus::after,
+.atuin-btn.focus::before {
+   width :100%;
+   left :0 ;
+}
+
+
+/**/
+
+.icon {
+        display: flex;
+        align-items: center;
+        margin-right: 10px; /* Optional spacing between icons */
+    }
+    .icon img {
+        margin-right: 5px; /* Space between icon and text */
+    }
+
+/* для расположение новостей в колонку*/
+.grid2 {
+
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Создаем колонки */
+    gap: 20px; /* Отступы между элементами */
+}
+
+/* Медиа-запрос для экранов с максимальной шириной 1200px */
+@media (max-width: 1200px) {
+    .grid {
+        grid-template-columns: 1fr; /* Все элементы в одну колонку */
+    }
+}

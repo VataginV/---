@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <title>Тосы Забайкалья</title>
+    <link rel="stylesheet" href="{% static "css/styles_tos.css" %}" />
+</head>
+<body>
+    <header style="background-image: url('/media/background.jpg');">
+
+        <a href="{% url 'home' %}" class="logo">
+            <img src="{% static 'media/ic.png' %}" alt="Логотип" width="50" height="50">
+        </a>
+        <nav class="menu">
+            <ul>
+                <li><a href="{% url 'home' %}">Главное</a></li>
+                <li><a href="{% url 'news' %}">Новости</a></li>
+                <li><a href="{% url 'tos' %}">Тосы</a></li>
+                <li><a href="{% url 'comp' %}">Конкурсы</a></li>
+                <li><a href="{% url 'doc' %}">Документы</a></li>
+                <li class="account"><a href="{% url 'auth' %}">Личный кабинет</a></li>
+            </ul>
+        </nav>
+    </header>
+  <main>
+
+
+
+    <div class="container">
+        {% for district, tos_list in tos_by_district.items %}
+            <div class="tile" onclick="toggleList({{ forloop.counter }})">
+                <span class="toggle-icon" id="icon-{{ forloop.counter }}">+</span>
+                <p class="tile-title">{{ district }}</p>
+            </div>
+            <div class="tos-list" id="list-{{ forloop.counter }}">
+                <ul>
+                    {% for tos in tos_list %}
+                        <li class="contact-form">
+                            {% if tos.image %}
+                                <img src="{{ tos.image.url }}" alt="Картинка" class="profile-image">
+                            {% endif %}
+                        <div class="contact-info">
+                            <h3 class="name">{{ tos.name }}, {{ tos.addres }}</h3>
+                            <p class="phone">Номер телефона: {{ tos.phone }}</p>
+                            <p class="chairman">Председатель: {{ tos.tos_chairperson }}</p>
+                        </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+
+</main>
+   <footer class="footer">
+
+    <div class="footer-column">
+         <h3>Контакты</h3>
+                <p>Телефон: 8-924-386-0147</p>
+                <p>Email: toszab@mail.ru</p></div>
+    <div class="footer-column">
+
+    <div class="footer-column">
+        <h3>Разработчики</h3>
+
+        <a href="https://t.me/VadimV_1" class="icon" style="color: white;">
+        <img src="{% static 'media/icotg.png' %}" alt="Telegram" style="color: white; vertical-align: middle;">
+        Ватагин Вадим (Бэкенд)
+    </a>
+<br>
+    <a href="https://t.me/Lamenat21" class="icon" style="color: white;">
+        <img src="{% static 'media/icotg.png' %}" alt="Telegram" style="color: white; vertical-align: middle;">
+        Богодухов Михаил (Фронтенд)
+    </a></div>
+</footer>
+
+    <script src="{% static "js/script_tos.js" %}" /></script>
+</body>
+</html>

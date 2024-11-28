@@ -1,0 +1,199 @@
+body {
+    margin: 0;
+min-width: 1200px;
+    color: black;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url('Image/background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    padding: 2%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 180px;
+    height: 180px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    margin: 0 15px;
+    position: relative;
+}
+
+.menu a {
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    position: relative;
+}
+
+.menu a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.menu a:hover::after,
+.menu a.active::after { /* Подчеркивание для активной ссылки */
+   width: 100%;
+}
+.container {
+    padding-top: 2%;
+    display: flex;
+    flex-direction: column; /* Расположение элементов вертикально */
+    align-items: center; /* Центрируем по горизонтали */
+}
+
+.tile {
+    background-color: #FFA500; /* Серый фон плитки */
+    color: black; /* Цвет текста */
+    display: flex; /* Используем flexbox для выравнивания значка и текста */
+    align-items: center; /* Центрируем по вертикали */
+    justify-content: flex-start; /* Выровнять по левому краю */
+    width: 45%; /* Ширина плитки */
+    height: 50px; /* Высота плитки */
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px; /* Отступ между плитками */
+    transition: background-color 0.3s; /* Плавная анимация изменения цвета фона */
+}
+
+.tile:hover {
+    opacity: 0.9; /* Эффект при наведении */
+}
+
+.tile-title {
+    margin-left: 10px; /* Отступ между значком и текстом */
+}
+
+.tos-list {
+    max-height: 0; /* Скрываем список по умолчанию */
+    overflow: hidden; /* Скрываем переполнение */
+    transition: max-height 0.5s ease-out; /* Плавная анимация открытия */
+}
+
+.tos-list.open {
+    width: 45%;
+    max-height: max-content; /* Максимальная высота при открытии (можно изменить) */
+}
+
+.tos-list ul {
+    text-align: left;
+    list-style-type: none; /* Убираем маркеры списка */
+    padding-left: 0; /* Убираем отступы слева */
+}
+
+
+/* Стиль для первой плитки */
+.style1 {
+   background-color: #FFA500;
+}
+
+/* Стиль для второй плитки */
+.style2 {
+   background-color: #FFA500;
+}
+
+/* Стиль для третьей плитки */
+.style3 {
+   background-color: #FFA500;
+}
+
+
+.contact-form {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center; /* Вертикальное выравнивание элементов */
+    padding: 20px; /* Отступы внутри формы */
+    background-color: white; /* Цвет фона формы */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень для формы */
+    position: relative; /* Для позиционирования подчеркивания */
+}
+
+.profile-image {
+    border-radius: 100%; /* Радиус скругления */
+    width: 150px;
+    margin-right: 30px; /* Отступ справа от картинки */
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение текста */
+}
+
+.name {
+    margin: 0; /* Убираем отступы у заголовка */
+}
+
+.phone, .chairman {
+    margin: 5px 0; /* Отступы между строками текста */
+}
+
+/* Подчеркивание внизу формы */
+.contact-form::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px; /* Высота подчеркивания */
+    background-color: orange; /* Цвет подчеркивания */
+}
+
+
+
+footer {
+    margin-top:30%;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    display: flex;
+    justify-content: space-between;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+}
+
+.footer-column {
+    flex: 1;
+}
+/**/
+.icon {
+        display: flex;
+        align-items: center;
+        margin-right: 10px; /* Optional spacing between icons */
+    }
+    .icon img {
+        margin-right: 5px; /* Space between icon and text */
+    }

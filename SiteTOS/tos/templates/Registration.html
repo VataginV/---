@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset='utf-8'>
+    <title>Регистрация</title>
+    <link rel='stylesheet' type='text/css' media='screen' href="{% static "css/styles_auto.css" %}">
+</head>
+<main><center>
+    <section class="auth-container">
+        <div class="auth-box">
+            <a href="{% url 'home' %}">
+                <img src="{% static 'media/ic.png' %}" alt="Логотип" width="200" height="200">
+            </a>
+            <div class="auth-title">Заявка на регистрацию</div>
+            <div class="auth-form">
+                <form method="POST" action="{% url 'registration' %}">
+                    <div class="auth-form">
+                        {% csrf_token %}
+                        <label for="username">Введите ФИО:</label>
+                        <input type="text" id="username" name="username" required>
+
+                        <label for="position">Должность:</label>
+                        <input type="text" id="position" name="position" required>
+
+                        <label for="tos">Выберите Тос:</label>
+                        <select id="tos" name="tos" required>
+                            {% for tos in tos_list %}
+                                <option value="{{ tos }}">{{ tos }}</option>
+                            {% endfor %}
+                        </select>
+
+                        <label for="mail">Введите ваш mail:</label>
+                        <input type="email" id="mail" name="mail" required>
+
+                        <label for="login">Придумайте логин:</label>
+                        <input type="text" id="login" name="login" required>
+
+                        <label for="password">Пароль:</label>
+                        <input type="password" id="password" name="password" required>
+
+                        <input class="btn" type="submit" value="Отправить заявку на регистрацию">
+                        <input class="btn" type="button" onclick="window.location.href='{% url 'home' %}';" value="На главную" />
+                    </div>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+</html>
